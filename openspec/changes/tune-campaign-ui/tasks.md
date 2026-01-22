@@ -32,3 +32,15 @@ Reference: [Design Spec v2](design_v2.md)
 - [x] 1.28 Separate Step button from card body with spacing
 - [x] 1.29 Fix background split: Green for Cards, White for Buttons (Desktop only, via Grid Structure)
 - [x] 1.30 Refactor Steps HTML to flattened grid structure for better layout control
+- [x] 1.31 Fix z-index stacking context to ensure Step buttons are visible above white background layer
+- [x] 1.32 Fix Incentive Banner z-index to ensure visibility above background layer
+- [x] 1.33 Make Step Button wider than Step Card by constraining Card width and setting Button to 100%
+- [x] 1.34 Implement YouTube Video Modal (Overlay) for "簡單點舞蹈教學" button
+  - [x] HTML: Add Modal structure and trigger class
+  - [x] CSS: Style Modal (fixed, centered, semi-transparent black overlay)
+  - [x] JS: Add toggle logic and video control
+- [x] 1.35 Fix Close Button triggering form submission (added type="button")
+- [x] 1.36 Update Incentive Banner to use newmenber.svg background
+- [x] 1.37 Fix Steps section background gap (extended grid bg layer, removed legacy ::after)
+- [x] 1.38 Adjust Incentive Banner width (80%) and text alignment (right)
+- [x] 1.39 Fix Incentive Banner cropping issue on wide screens (used aspect-ratio: 2332/575 and background-size: contain)

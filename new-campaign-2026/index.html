@@ -690,7 +690,7 @@
         <div id="layout_0_content_0_Section_Component">
           <!-- 前端開發時新增之CSS請放在此行下方 -->
           <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-          <link rel="stylesheet" href="css/campaign-2026.css?v=20260121" />
+          <link rel="stylesheet" href="css/campaign-2026.css?v=20260122_3" />
           
           <div id="event_2026_dance">
             
@@ -734,7 +734,7 @@
                   </div>
                 </div>
                 <div class="step_footer step1_footer">
-                  <a href="#video" class="step_btn">簡單點舞蹈教學 <span class="arrow"></span></a>
+                  <a href="javascript:void(0)" class="step_btn js-video-modal-btn">簡單點舞蹈教學 <span class="arrow"></span></a>
                   <p class="step_note">※觀看教學後<br>請開啟您的手機相機錄下舞蹈影片</p>
                 </div>
                 
@@ -769,8 +769,9 @@
               <div class="incentive_banner">
                 <div class="icon"></div>
                 <div>
-                  <h3>於本活動期間，立即註冊成為國泰產險新會員</h3>
-                  <p>就有機會獲得 100 點 LINE POINTS！</p>
+                  <h3>新會員加碼！本次活動期間加入國泰產險</h3>
+                  <h3>新會員註冊資料填入活動碼「easy_tap」</h3>
+                  <h3>就有機會獲得 100 點 LINE POINTS！</h3>
                 </div>
               </div>
             </section>
@@ -845,6 +846,17 @@
               </div>
             </section>
             
+            <!-- Video Modal -->
+            <div id="video_modal" class="video_modal">
+              <div class="video_modal_overlay js-video-modal-close"></div>
+              <div class="video_modal_container">
+                <button type="button" class="video_modal_close js-video-modal-close" aria-label="Close Video">&times;</button>
+                <div class="video_modal_content">
+                  <iframe id="youtube_player" width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </main>
