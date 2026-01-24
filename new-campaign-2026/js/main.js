@@ -71,4 +71,25 @@
     });
   }
 
+  // Campaign Video Player Logic (Custom Cover)
+  const videoCover = document.querySelector('.video-cover');
+  const campaignVideo = document.getElementById('campaign-video');
+
+  if (videoCover && campaignVideo) {
+    videoCover.addEventListener('click', function() {
+      this.classList.add('hide');
+      campaignVideo.play().catch(error => {
+        console.log("Autoplay prevented:", error);
+        // If autoplay is blocked (rare on user interaction), we might need to show controls immediately
+      });
+    });
+
+    campaignVideo.addEventListener('ended', function() {
+      videoCover.classList.remove('hide');
+      // Reset video
+      campaignVideo.currentTime = 0;
+      // Also on mobile, exiting full screen might happen, ensure inline plays
+    });
+  }
+
 })();
