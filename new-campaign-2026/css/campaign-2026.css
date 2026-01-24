@@ -28,7 +28,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   width: 100%;
   position: relative;
   font-family: "Noto Sans TC", "Montserrat", sans-serif;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to visible for sticky elements */
   background: white;
 }
 
@@ -998,5 +998,87 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
     top: -50px;
     right: -50px;
     font-size: 3rem;
+  }
+}
+
+/* ========== Floating Camera Button ========== */
+/* Removed old container styles */
+.floating_camera_btn_container {
+  display: none; 
+}
+
+/* Global Floating Container */
+.global_floating_camera_container {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  /* Use fixed positioning to float over everything, but control visibility with JS */
+  /* Or use sticky if we can find a parent that spans video to footer */
+  
+  /* Current strategy: Fixed position, controlled by ScrollTrigger/JS logic or simplified CSS sticky if structure allows */
+  /* Given the request: "Appears when section video appears" -> meaning it shows up LATER? */
+  /* Re-reading user request: "滑動到出現section vedio時 這個按鈕才出現" -> appear when video section is reached */
+  /* AND "跟著滑動到頁尾" -> stay visible until footer */
+  
+  /* Best approach: Fixed position button, initially hidden, show via JS when scroll passes threshold */
+  
+  .global_floating_camera_container {
+    display: block;
+    position: fixed; /* Fixed to viewport */
+    top: 20vh;
+    right: 10px;
+    z-index: 999;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* Click-through when hidden */
+  }
+  
+  .global_floating_camera_container.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .floating_camera_btn {
+    /* No longer sticky, now just a static block inside the fixed container */
+    position: relative; 
+    top: auto;
+    background: url('../images/open-camera.svg') no-repeat center center;
+    background-size: contain;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    width: 140px; /* Adjust size based on aspect ratio of your SVG */
+    height: 140px; 
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+  }
+  
+  .floating_camera_btn:active {
+    transform: scale(0.95);
+  }
+  
+  .floating_camera_btn img {
+    display: none; /* Hide img tag since we use background */
+  }
+
+  .floating_camera_btn .btn_text {
+    /* Position text based on your SVG design - adjust top/left % as needed */
+    position: absolute;
+    top: 35%; /* Example: pushed down slightly if icon is centered */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: white; /* Assuming SVG background is dark/solid enough */
+    text-align: center;
+    white-space: nowrap;
+    width: 80%; /* Ensure text doesn't spill out */
   }
 }
