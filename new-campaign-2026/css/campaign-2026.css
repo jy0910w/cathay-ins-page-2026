@@ -807,6 +807,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #prizes .prize_card .prize_title {
+  font-size: 1.6667vw !important;
   font-weight: 700;
   margin-bottom: 1rem;
   color: #3F3F3F;
@@ -814,7 +815,6 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #prizes .prize_card.first .prize_title {
-  font-size: 1.6667vw !important;
   margin-bottom: 0.25rem; /* Reduced spacing */
 }
 
@@ -848,35 +848,53 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #prizes .prizes_cta .btn {
+  display: flex;
   padding: 1rem 2rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  border-radius: 9999px;
+  border-radius: 2rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  padding-right: 2.5rem;
   background: #FFC83B;
-  color: white;
+  color: #3F3F3F;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-#event_2026_dance #prizes .prizes_cta .btn::after {
-  content: '>';
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+#event_2026_dance #prizes .prizes_cta .btn .arrow {
+  display: inline-block;
+  width: 6px;
+  height: 10px;
+  background: url('../images/icon-arrow--line.svg') no-repeat center center;
+  background-size: contain;
 }
 
 #event_2026_dance #prizes .prizes_cta .btn:hover {
   background: #d9a83a;
 }
 
+#event_2026_dance #prizes .prizes_cta_group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#event_2026_dance #prizes .cta_note {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
 /* ========== Rules Section ========== */
 #event_2026_dance #rules {
   width: 100%;
-  background: #f9fafb;
+  background: #FFFFFF;
   padding: 3rem 1rem;
   display: flex;
   justify-content: center;
@@ -884,50 +902,165 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #rules .rules_container {
   width: 100%;
-  max-width: 56rem;
+  max-width: 88.54vw;
   padding: 0 1rem;
-}
-
-#event_2026_dance #rules .rules_title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: center;
-  color: #374151;
-  margin-bottom: 2rem;
 }
 
 #event_2026_dance #rules .rules_content {
   background: white;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  font-size: 0.875rem;
-  color: #4b5563;
+  padding: 0 0 2.5rem 0; /* Remove top/side padding, keep bottom */
+  border: 1px solid #e5e5e5;
+  border-radius: 1.5rem; /* Updated to 1.5rem */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  font-size: 1.61458vw;
+  color: #333;
   line-height: 1.75;
+  
+  /* Collapse Logic */
+  max-height: 1080px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease-in-out;
 }
 
-#event_2026_dance #rules .rules_content ul {
-  list-style: disc;
-  padding-left: 1.25rem;
-}
-
-#event_2026_dance #rules .rules_content ul li {
-  margin-bottom: 0.5rem;
-}
-
-#event_2026_dance #rules .rules_content ol {
-  list-style: decimal;
-  padding-left: 1.25rem;
-  margin-top: 0.5rem;
-}
-
-#event_2026_dance #rules .rules_content ol li {
-  margin-bottom: 0.5rem;
-}
-
-#event_2026_dance #rules .rules_content strong {
+#event_2026_dance #rules .rules_title {
+  font-size: 4.16667vw;
   font-weight: 700;
-  color: #1f2937;
+  text-align: center;
+  color: #9CA3AF;
+  background-color: #f3f4f6; /* Light gray background */
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 0; /* Vertical padding */
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%; /* Full width */
+  border-radius: 1.5rem 1.5rem 0 0; /* Match container top corners */
+}
+
+#event_2026_dance #rules .rules_content.expanded {
+  max-height: 5000px; /* Large enough number to fit all content */
+}
+
+/* Gradient Overlay */
+#event_2026_dance #rules .rules_content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 480px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 2; /* Ensure it stays on top of relative children */
+}
+
+#event_2026_dance #rules .rules_content.expanded::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#event_2026_dance #rules .rules_list {
+  list-style: none;
+  padding: 0 4.16667vw;
+  margin: 0;
+}
+
+#event_2026_dance #rules .rules_list > li {
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 1.5rem; /* Indent for bullet */
+}
+
+/* Solid Black Bullet */
+#event_2026_dance #rules .rules_list > li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  font-size: 0.8em;
+  line-height: 2; /* Adjust vertical alignment */
+}
+
+#event_2026_dance #rules .rules_list > li > strong {
+  color: #000;
+  font-weight: 700;
+}
+
+#event_2026_dance #rules .rules_sublist {
+  list-style: none; /* Removed default disc */
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#event_2026_dance #rules .rules_sublist li {
+  margin-bottom: 0.25rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+/* Hollow Circle Bullet */
+#event_2026_dance #rules .rules_sublist li::before {
+  content: '◎';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #333;
+}
+
+#event_2026_dance #rules .rules_ordered_list {
+  list-style: none; /* Custom numbering */
+  padding-left: 0;
+  margin-top: 0.5rem;
+  counter-reset: rules-counter;
+}
+
+#event_2026_dance #rules .rules_ordered_list > li {
+  margin-bottom: 0.75rem;
+  padding-left: 3rem;
+  position: relative;
+}
+
+#event_2026_dance #rules .rules_ordered_list > li::before {
+  counter-increment: rules-counter;
+  content: counter(rules-counter) ". ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: normal;
+}
+
+#event_2026_dance #rules .rules_note {
+  color: #333; /* Standard color */
+  font-weight: normal;
+  margin-top: 0.5rem;
+  padding-left: 1.5rem; /* Align with sublist */
+}
+
+#event_2026_dance #rules .rules_toggle_btn {
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  margin: 1rem auto 0; /* Changed from negative margin to positive spacing */
+  position: relative;
+  z-index: 10;
+  width: fit-content;
+  box-shadow: none;
+  transition: transform 0.3s;
+  user-select: none;
+}
+
+#event_2026_dance #rules .rules_toggle_btn:hover {
+  background: transparent;
+  transform: scale(1.05);
+}
+
+#event_2026_dance #rules .rules_toggle_btn img {
+  display: block;
+  height: 3rem; /* Set a reasonable height for the icon */
+  width: auto;
 }
 
 /* ========== Video Modal ========== */
