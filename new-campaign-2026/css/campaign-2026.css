@@ -292,7 +292,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   margin: 0 1rem;
   display: flex;
   justify-content: center;
-  height: 15.75rem;
+  height: 13.125rem;
   align-items: center;
 }
 
@@ -432,7 +432,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #steps .incentive_banner h3 {
-  font-size: 2.34vw;
+  font-size: clamp(1rem, 2.34vw, 2.5rem);
   font-weight: 500;
   color: #3F3F3F;
   margin: 0;
@@ -452,7 +452,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #video .video_title {
-  font-size: 4.16667vw;
+  font-size: clamp(1rem, 4.17vw, 5rem);
   font-weight: 700;
   margin-bottom: 2rem;
   color: #3F3F3F;
@@ -490,7 +490,6 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   padding-bottom: 42.1875vw;
   height: 0;
   overflow: hidden;
-  border-radius: 1rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   max-width: none;
   margin: 0 auto;
@@ -561,7 +560,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #prizes .prizes_title {
-  font-size: 5.83333vw;
+  font-size: clamp(1rem, 5.83vw, 7rem);
   font-weight: 800;
   text-align: center;
   margin-bottom: 1rem;
@@ -569,7 +568,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #prizes .prizes_subtitle {
-  font-size: 4.16667vw;
+  font-size: clamp(1rem, 4.17vw, 5rem);
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
@@ -581,13 +580,13 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #prizes .prizes_grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem; /* Equal spacing between cards */
   max-width: 80rem;
   margin: 0 auto 3rem;
   padding: 0 1rem;
-  align-items: center;
 }
 
 #event_2026_dance #prizes .prize_card {
@@ -609,28 +608,44 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #prizes .prize_card.first {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   width: 27.08333vw;
-  height: 27.93666vw;
+  aspect-ratio: 27.08333 / 27.93666; /* Maintain aspect ratio */
+  height: auto;
+}
+
+/* 2nd and 3rd prize cards - smaller than first */
+#event_2026_dance #prizes .prize_card:not(.first) {
+  width: 23.69792vw;
+  aspect-ratio: 23.69792 / 24; /* Maintain aspect ratio */
+  height: auto;
+  align-self: center;
 }
 
 #event_2026_dance #prizes .prize_badge {
   background: transparent;
   color: #3F3F3F;
   font-weight: 700;
-  padding: 1rem 0;
+  padding: 0; /* Removed padding */
   text-align: center;
   width: 100%;
   line-height: 1.2;
+  /* Use Flexbox for centering */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 25%; /* Desktop default */
+  flex-basis: 25%; /* Desktop default */
 }
 
 #event_2026_dance #prizes .prize_badge .badge_rank {
   display: block;
-  font-size: clamp(1.5rem, 3.23vw, 4rem);
+  font-size: clamp(2rem, 3vw, 4rem);
 }
 
 #event_2026_dance #prizes .prize_badge .badge_count {
   display: block;
-  font-size: clamp(1rem, 2.08vw, 3rem);
-  margin-top: 0.25rem;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+  margin-top: 0; /* Remove margin */
 }
 
 #event_2026_dance #prizes .prize_card_body {
@@ -647,38 +662,43 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   padding: 2rem;
 }
 
+/* 2nd and 3rd prize card body - adjust padding */
+#event_2026_dance #prizes .prize_card.second .prize_card_body {
+  padding: 0.75rem 1rem 0;
+}
+
+#event_2026_dance #prizes .prize_card.third .prize_card_body {
+  padding: 0.5rem 1rem 1rem;
+}
+
 #event_2026_dance #prizes .prize_card .prize_title {
   font-size: clamp(1rem, 1.67vw, 2rem) !important;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin: 0.25rem 0;
   color: #3F3F3F;
   font-family: "Montserrat", sans-serif;
 }
 
 #event_2026_dance #prizes .prize_card.first .prize_title {
-  margin-bottom: 0.25rem;
+  margin: 0.75rem 0;
 }
 
 #event_2026_dance #prizes .prize_card .prize_image {
   background: #FFFFFF;
-  height: 12rem;
+  flex: 1; /* Allow image container to grow */
+  min-height: 0; /* CRITICAL: Allows flex item to shrink below content size */
   display: flex;
   align-items: center;
   justify-content: center;
   color: #6b7280;
   border-radius: 0.5rem;
-}
-
-#event_2026_dance #prizes .prize_card.first .prize_image {
-  height: 15rem;
-  margin-top: 0.25rem;
+  overflow: visible;
 }
 
 #event_2026_dance #prizes .prize_card .prize_image img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures image maintains aspect ratio within the container */
 }
 
 #event_2026_dance #prizes .prizes_cta {
@@ -686,11 +706,16 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  max-width: clamp(600px, 60vw, 1200px);
+  width: 100%; /* Ensure container takes up the max-width space */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #event_2026_dance #prizes .prizes_cta .btn {
   display: flex;
   padding: 1rem 2rem;
+  width: 100%; /* Make button fill its container */
   font-size: clamp(1rem, 1.5rem, 2rem);
   font-weight: 700;
   border-radius: 2rem;
@@ -723,10 +748,12 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1; /* Allow group to grow to fill space */
+  width: 100%; /* Ensure it takes available width on mobile wrap */
 }
 
 #event_2026_dance #prizes .cta_note {
-  font-size: clamp(0.875rem, 1rem, 1.25rem);
+  font-size: clamp(0.75rem, 1rem, 1.25rem);
   color: #6b7280;
   margin-top: 1rem;
   margin-bottom: 0;
@@ -752,7 +779,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #rules .rules_content {
   background: white;
-  padding: 0 0 2.5rem 0;
+  padding: 0 0 4rem 0; /* Increase bottom padding to accommodate button inside */
   border: 1px solid #e5e5e5;
   border-radius: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -790,7 +817,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   left: 0;
   width: 100%;
   height: 480px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 80%); /* Adjusted gradient stops to increase white area */
   pointer-events: none;
   transition: opacity 0.3s;
   z-index: 2;
@@ -882,8 +909,11 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   background: transparent;
   padding: 0;
   cursor: pointer;
-  margin: 1rem auto 0;
-  position: relative;
+  margin: 0;
+  position: absolute;
+  bottom: 2rem; /* Stick to bottom edge */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
   z-index: 10;
   width: fit-content;
   box-shadow: none;
@@ -893,7 +923,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #rules .rules_toggle_btn:hover {
   background: transparent;
-  transform: scale(1.05);
+  transform: translateX(-50%) scale(1.05); /* Maintain centering while scaling */
 }
 
 #event_2026_dance #rules .rules_toggle_btn img {
@@ -1053,8 +1083,8 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   
   #event_2026_dance #steps .steps_grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 0 1.5rem 3rem;
+    gap: 1.5rem;
+    padding: 3rem 1.5rem 0;
   }
   
   /* Green background for cards area */
@@ -1066,22 +1096,24 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 100%;
+    height: 90%;
     background: #ccffe1;
     z-index: 0;
   }
   
-  /* White background layer for banner area */
-  #event_2026_dance #steps .incentive_banner::before {
+  /* White background layer for banner area - positioned after grid */
+  #event_2026_dance #steps .steps_grid::after {
     content: '';
+    display: block;
     position: absolute;
-    top: -3rem;
+    top: auto;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: calc(100% + 6rem);
+    height: 0px; /* Approximate banner height + margins */
     background: white;
-    z-index: -1;
+    z-index: 0;
   }
 
   #event_2026_dance #steps .step_main {
@@ -1103,12 +1135,12 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
   #event_2026_dance #steps .step_image {
     height: 12rem;
-    margin: 0 1.5rem 1rem;
+    margin: 0 1.5rem;
   }
 
   #event_2026_dance #steps .step_footer {
     margin-bottom: 0;
-    padding-top: 2rem;
+    padding-top: 0;
     grid-column: auto;
     grid-row: auto;
   }
@@ -1142,16 +1174,18 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   /* Incentive Banner Mobile */
   #event_2026_dance #steps .incentive_banner {
     width: 90%;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    padding: 2.5rem 2rem;
+    margin-top: 0; /* Reduced spacing from steps */
+    margin-bottom: 0;
+    padding: 0;
     min-height: 200px;
     position: relative;
     z-index: 10;
     grid-column: auto;
     grid-row: auto;
     aspect-ratio: auto;
-    background-size: 100% 100%;
+    /* Keep background image from desktop */
+    background: url('../images/newmember.svg') no-repeat center center;
+    background-size: contain;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1160,14 +1194,14 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   
   #event_2026_dance #steps .incentive_banner > div:last-child {
     position: relative;
-    top: auto;
-    right: auto;
+    top: -0.75rem; /* Move up by 20px, adjust as needed */
+    right: -2.5rem;
     transform: none;
     text-align: center;
   }
 
   #event_2026_dance #steps .incentive_banner h3 {
-    font-size: 1.25rem;
+    font-size: 0.65rem;
     line-height: 1.6;
     white-space: normal;
     font-weight: 600;
@@ -1193,18 +1227,77 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
   
   /* ========== Prizes Section Mobile ========== */
+  #event_2026_dance #prizes {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden; /* Hide scrollbar for section but allow grid to scroll */
+  }
+
   #event_2026_dance #prizes .prizes_grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    display: flex; /* Use flex instead of grid for scrolling */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem 2rem; /* Add padding for scroll space and shadow */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start; /* Align start */
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    scrollbar-width: none; /* Firefox hide scrollbar */
   }
   
+  #event_2026_dance #prizes .prizes_grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari hide scrollbar */
+  }
+  
+  /* Reorder items: 1st Prize first, then others */
   #event_2026_dance #prizes .prize_card.first {
-    width: 100%;
+    order: -1; /* Move to first position */
+    min-width: 85vw; /* Card takes mostly full width */
+    scroll-snap-align: center;
+    width: 85vw;
     height: auto;
+    aspect-ratio: auto;
+    align-self: stretch; /* Ensure it stretches to match tallest card */
+  }
+  
+  #event_2026_dance #prizes .prize_card:not(.first) {
+    min-width: 85vw;
+    scroll-snap-align: center;
+    width: 85vw;
+    height: auto;
+    aspect-ratio: auto;
+    align-self: stretch; /* Stretch to match height of tallest card if needed */
   }
 
   
-  /* ========== Rules Section Mobile ========== */
+  /* Ensure prizes_cta is within padding on mobile */
+  #event_2026_dance #prizes .prizes_cta {
+    padding: 0 1rem;
+    width: auto;
+    flex-wrap: nowrap; /* Prevent wrapping to keep in one row */
+    gap: 0.75rem; /* Reduce gap slightly */
+  }
+
+  /* Force groups to be horizontal and equal width */
+  #event_2026_dance #prizes .prizes_cta_group {
+    flex: 1;
+    width: auto;
+  }
+  
+  /* Adjust button for mobile */
+  #event_2026_dance #prizes .prizes_cta .btn {
+    padding: 0.5rem; /* Reduce padding */
+    height: 3.5rem; /* Match hero button height */
+    font-size: 1rem; /* Adjust font size */
+    width: 100%;
+  }
+  
+  #event_2026_dance #prizes .cta_note {
+    font-size: 0.75rem; /* Smaller font size for mobile note */
+  }
   #event_2026_dance #rules {
     padding: 2rem 1rem;
   }
@@ -1270,12 +1363,38 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 1.3;
     color: white;
     text-align: center;
     white-space: nowrap;
     width: 80%;
+  }
+
+  /* Unify Prize Card Padding and Spacing on Mobile */
+  #event_2026_dance #prizes .prize_card.first .prize_card_body,
+  #event_2026_dance #prizes .prize_card:not(.first) .prize_card_body {
+    padding: 1.5rem;
+  }
+  
+  #event_2026_dance #prizes .prize_card.first .prize_title,
+  #event_2026_dance #prizes .prize_card:not(.first) .prize_title {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Reduce Prize Badge height on Mobile */
+  #event_2026_dance #prizes .prize_badge {
+    min-height: 15%;
+    flex-basis: 15%;
+  }
+
+  /* Reduce Rules initial height on Mobile */
+  #event_2026_dance #rules .rules_content {
+    max-height: 600px; /* Reduced from 1080px */
+  }
+  
+  #event_2026_dance #rules .rules_content::after {
+    height: 300px; /* Reduced gradient height */
   }
 }
