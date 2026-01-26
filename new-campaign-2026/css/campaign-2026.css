@@ -2,10 +2,18 @@
 /* 
   Project: 2026 Cathay Insurance Campaign - Dance Enough Gift
   Author: Copilot CLI
-  Date: 2026-01-21
+  Date: 2026-01-23
+  
+  Structure:
+  1. Global Styles
+  2. Desktop Styles (Base)
+  3. Mobile Overrides (@media max-width: 1023px)
 */
 
-/* Global Reset */
+/* ============================================
+   1. GLOBAL STYLES
+   ============================================ */
+
 html, body {
   scroll-behavior: smooth;
 }
@@ -14,7 +22,7 @@ body {
   height: auto !important;
 }
 
-/* Hide footer during campaign - kept for sec3/4/5 but showing footer_hide elements */
+/* Hide footer during campaign */
 body #sec3, body #sec4, body #sec5 {
   display: none;
 }
@@ -28,95 +36,67 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   width: 100%;
   position: relative;
   font-family: "Noto Sans TC", "Montserrat", sans-serif;
-  overflow: visible; /* Changed from hidden to visible for sticky elements */
+  overflow: visible;
   background: white;
 }
+
+
+/* ============================================
+   2. DESKTOP STYLES (BASE)
+   ============================================ */
 
 /* ========== Hero Section ========== */
 #event_2026_dance #hero {
   width: 100%;
-  background: white; /* 保持底色為白 */
+  background: white;
   position: relative;
-  padding: 6rem 1rem 6rem; /* Increased padding */
-  min-height: 45vw; /* Ensure container is tall enough for the background */
+  padding: 8rem 2rem 3rem;
+  min-height: 45vw;
   text-align: center;
   overflow: visible;
-  z-index: 20; /* Ensure hero is above steps for overlapping characters */
+  z-index: 20;
 }
 
-/* Background Image via Pseudo-element for independent positioning */
 #event_2026_dance #hero::before {
   content: '';
   position: absolute;
-  top: 0rem; /* Moved up */
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100%); /* Fill the container */
+  height: 100%;
   background: url('../images/section1-3.svg') no-repeat center top;
   background-size: cover;
   z-index: 0;
 }
 
-@media (min-width: 1024px) {
-  #event_2026_dance #hero {
-    padding: 8rem 2rem 3rem;
-  }
-}
-
-/* 確保內容在人物之上 */
 #event_2026_dance #hero .hero_content {
   position: relative;
   z-index: 10;
 }
 
-/* 左側人物 - 手機男 */
+/* Characters */
 #event_2026_dance #hero .char_left {
   position: absolute;
-  bottom: -3rem; /* Overlap with next section */
+  bottom: -3rem;
   left: 5%;
-  width: 23%; /* 手機版大小 */
+  width: 23%;
   max-width: 480px;
   height: auto;
   z-index: 5;
-  transform: translateX(-10%); /* 稍微往左移 */
+  transform: translateX(-10%);
 }
 
-/* 右側人物 - 音樂女 */
 #event_2026_dance #hero .char_right {
   position: absolute;
-  bottom: -1.5rem; /* Overlap with next section */
+  bottom: -1.5rem;
   right: 6%;
-  width: 19%; /* 手機版大小 */
+  width: 19%;
   max-width: 380px;
   height: auto;
   z-index: 5;
-  transform: translateX(10%); /* 稍微往右移 */
-}
-/*
-@media (min-width: 768px) {
-  #event_2026_dance #hero .char_left,
-  #event_2026_dance #hero .char_right {
-    width: 25%;
-    max-width: 400px;
-  }
+  transform: translateX(10%);
 }
 
-@media (min-width: 1024px) {
-  #event_2026_dance #hero .char_left {
-    left: 5%;
-    width: 23%;
-    max-width: 500px;
-    transform: none;
-  }
-  
-  #event_2026_dance #hero .char_right {
-    right: 5%;
-    width: 23%;
-    max-width: 500px;
-    transform: none;
-  }
-}
-*/
 #event_2026_dance #hero .hero_title {
   margin-bottom: 2rem;
 }
@@ -156,7 +136,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   font-size: clamp(1.5rem, 4.17vw, 5rem);
   font-weight: 800;
   color: #3F3F3F;
-  margin-top: 5rem;
+  margin-top: 7rem;
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -170,20 +150,13 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   transform: translateY(-2px);
 }
 
-@media (min-width: 1024px) {
-  #event_2026_dance #hero .hero_subtitle {
-    font-size: 2.5rem;
-    margin-top: 7rem;
-  }
-}
-
 #event_2026_dance #hero .hero_cta {
   display: flex;
   justify-content: center;
   gap: 3.25rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
-  max-width: 740px;
+  max-width: clamp(500px, 48vw, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
@@ -198,13 +171,13 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   position: relative;
-  display: flex !important; /* Force flex */
+  display: flex !important;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: 1rem 2rem; /* Symmetrical padding */
-  gap: 1rem; /* Space between text and arrow */
-  height: 5rem; /* Explicit height */
+  padding: 1rem 2rem;
+  gap: 1rem;
+  height: 4rem;
   background: #FFC83B;
   color: #3F3F3F;
   text-align: center;
@@ -213,33 +186,18 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #hero .hero_cta .btn::after {
   content: '';
-  position: relative; /* Changed from absolute */
+  position: relative;
   display: block;
   width: 0.75rem;
   height: 2rem;
   background: url('../images/icon-arrow--line.svg') no-repeat center center;
   background-size: contain;
-  /* Removed absolute positioning properties */
 }
 
 #event_2026_dance #hero .hero_cta .btn:hover {
   background: #d9a83a;
 }
 
-/* 手機版調整 */
-@media (max-width: 767px) {
-  #event_2026_dance #hero .hero_cta {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
-  
-  #event_2026_dance #hero .hero_cta .btn {
-    flex: 1 1 100%;
-    max-width: 150px;
-  }
-}
-
-/* Removed hero_image styles */
 
 /* ========== Steps Section ========== */
 #event_2026_dance #steps {
@@ -249,41 +207,18 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   position: relative;
 }
 
-/* White background for the bottom part (Desktop) */
-#event_2026_dance #steps::after {
-  display: none;
-}
-
-/* 向上凸起的綠色波浪裝飾 - 梯形 */
+/* Wave decoration */
 #event_2026_dance #steps::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 30px;
+  height: 50px;
   background: #ccffe1;
-  clip-path: polygon(
-    0 100%,
-    45% 100%,
-    50% 0,
-    55% 100%,
-    100% 100%
-  );
+  clip-path: polygon(0 100%, 45% 100%, 50% 0, 55% 100%, 100% 100%);
   transform: translateY(-100%);
   z-index: 21;
-}
-
-@media (min-width: 768px) {
-  #event_2026_dance #steps::before {
-    height: 40px;
-  }
-}
-
-@media (min-width: 1024px) {
-  #event_2026_dance #steps::before {
-    height: 50px;
-  }
 }
 
 #event_2026_dance #steps .steps_title {
@@ -296,68 +231,49 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #steps .steps_grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr minmax(0, 27.5rem) minmax(0, 27.5rem) minmax(0, 27.5rem) 1fr;
+  grid-template-rows: auto auto auto;
   gap: 0;
-  max-width: 72rem;
+  column-gap: 6rem;
+  max-width: none;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-@media (min-width: 768px) {
-  #event_2026_dance #steps .steps_grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Step Main (Yellow Wrapper) */
+/* Step Cards */
 #event_2026_dance #steps .step_main {
   background: #FFC83B;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 0 1px 1px 1px; /* Thin yellow border effect sides/bottom */
+  padding: 0 1px 1px 1px;
   position: relative;
   z-index: 2;
   height: 100%;
-  margin-bottom: 1rem;
   overflow: visible;
 }
 
-/* New Inner White Card */
 #event_2026_dance #steps .step_card_body {
   background: white;
-  border-radius: 1rem; /* Rounded all corners inside */
+  border-radius: 1rem;
   overflow: hidden;
   flex: 1;
   display: flex;
   flex-direction: column;
-  box-shadow: none; /* Shadow on parent */
+  box-shadow: none;
   width: 100%;
-}
-
-#event_2026_dance #steps .step_footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 3rem;
-  position: relative;
-  z-index: 10; /* High z-index to ensure visibility above background layer */
-}
-
-#event_2026_dance #steps .steps_bg_layer {
-  display: none;
 }
 
 #event_2026_dance #steps .step_badge {
   background: transparent;
   color: #3F3F3F;
   font-weight: 700;
-  padding: 1rem 0 1rem;
+  padding: 1rem 0;
   text-align: center;
   font-size: clamp(1.25rem, 2.34vw, 3rem);
   width: 100%;
@@ -366,7 +282,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #steps .step_title {
   font-size: clamp(1rem, 1.67vw, 2rem);
   font-weight: 450;
-  margin: 1rem 1rem 1rem;
+  margin: 1rem;
   line-height: 1.4;
   color: #3F3F3F;
   text-align: center;
@@ -376,7 +292,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   margin: 0 1rem;
   display: flex;
   justify-content: center;
-  height: 15.75rem; /* Adjusted to 200px */
+  height: 15.75rem;
   align-items: center;
 }
 
@@ -384,16 +300,26 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 100%; /* Contain image */
+  max-height: 100%;
 }
 
-/* Specific adjustment for Step 3 image */
 #event_2026_dance #steps .step3_main .step_image img {
   max-height: 85%;
   max-width: 85%;
 }
 
-/* Floating Button */
+#event_2026_dance #steps .step_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  padding-top: 3rem;
+}
+
 #event_2026_dance #steps .step_btn {
   display: flex;
   background: #FFC83B;
@@ -429,165 +355,92 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   text-align: center;
 }
 
-/* Desktop Grid Configuration */
-@media (min-width: 1024px) {
-  #event_2026_dance #steps .steps_grid {
-    /* 5-column grid: 1fr (spacer) - card - card - card - 1fr (spacer) */
-    grid-template-columns: 1fr minmax(0, 27.5rem) minmax(0, 27.5rem) minmax(0, 27.5rem) 1fr;
-    grid-template-rows: auto auto auto; /* Row 1: Cards, Row 2: Footer, Row 3: Banner */
-    gap: 0; 
-    column-gap: 6rem; /* Adjusted gap */
-    max-width: none;
-  }
+/* Grid Placement */
+#event_2026_dance #steps .step1_main { grid-column: 2; grid-row: 1; }
+#event_2026_dance #steps .step2_main { grid-column: 3; grid-row: 1; }
+#event_2026_dance #steps .step3_main { grid-column: 4; grid-row: 1; }
+#event_2026_dance #steps .step1_footer { grid-column: 2; grid-row: 2; }
+#event_2026_dance #steps .step2_footer { grid-column: 3; grid-row: 2; }
+#event_2026_dance #steps .step3_footer { grid-column: 4; grid-row: 2; }
 
-  /* Constrain cards and footers on desktop */
-  #event_2026_dance #steps .step_main {
-    max-width: 100%;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 1rem;
-  }
+/* Arrows between steps */
+#event_2026_dance #steps .step1_main::after,
+#event_2026_dance #steps .step2_main::after {
+  content: '';
+  position: absolute;
+  left: calc(100% + 3rem);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2rem;
+  height: 2rem;
+  background: url('../images/icon-arrow--line.svg') no-repeat center center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 10;
+}
 
-  #event_2026_dance #steps .step_footer {
-    max-width: 100%;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Grid Placement - Shifted by +1 column due to spacer */
-  #event_2026_dance #steps .step1_main { grid-column: 2; grid-row: 1; margin-bottom: 0; }
-  #event_2026_dance #steps .step2_main { grid-column: 3; grid-row: 1; margin-bottom: 0; }
-  #event_2026_dance #steps .step3_main { grid-column: 4; grid-row: 1; margin-bottom: 0; }
-
-  #event_2026_dance #steps .step1_footer { grid-column: 2; grid-row: 2; margin-bottom: 0; padding-top: 3rem; }
-  #event_2026_dance #steps .step2_footer { grid-column: 3; grid-row: 2; margin-bottom: 0; padding-top: 3rem; }
-  #event_2026_dance #steps .step3_footer { grid-column: 4; grid-row: 2; margin-bottom: 0; padding-top: 3rem; }
-  
-  /* Incentive Banner Placement */
-  #event_2026_dance #steps .incentive_banner {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    margin-top: 3rem;
-  }
-
-  /* Background Layer for Row 2 & 3 (White) */
-  #event_2026_dance #steps .steps_bg_layer {
-    display: block;
-    grid-column: 1 / -1;
-    grid-row: 2 / -1; /* Spans Row 2 (Footer) and Row 3 (Banner) */
-    position: absolute; /* Take out of flow to prevent layout issues */
-    z-index: 0;
-    
-    /* Full width expansion */
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    /* Vertical positioning relative to the grid rows */
-    top: 2rem; /* Start white bg slightly lower */
-    bottom: -4rem; /* Extend to cover section padding */
-    height: auto;
-    
-    background: white;
-  }
-
-  /* Remove pseudo element */
-  #event_2026_dance #steps .steps_bg_layer::before {
-    display: none;
-  }
-
-  /* Arrows */
-  #event_2026_dance #steps .step1_main::after,
-  #event_2026_dance #steps .step2_main::after {
-    content: '';
-    position: absolute;
-    /* Position exactly in the middle of the 2rem gap */
-    left: calc(100% + 3rem); 
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 2rem;
-    height: 2rem;
-    background: url('../images/icon-arrow--line.svg') no-repeat center center;
-    background-size: contain;
-    pointer-events: none;
-    z-index: 10;
-  }
-  
-  /* Remove old arrow styles if any */
-  #event_2026_dance #steps .step_card:not(:last-child)::after {
-    display: none;
-  }
+/* Background Layer for Row 2 & 3 (White) */
+#event_2026_dance #steps .steps_bg_layer {
+  display: block;
+  grid-column: 1 / -1;
+  grid-row: 2 / -1;
+  position: absolute;
+  z-index: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2rem;
+  bottom: -4rem;
+  height: auto;
+  background: white;
 }
 
 /* Incentive Banner */
 #event_2026_dance #steps .incentive_banner {
+  grid-column: 1 / -1;
+  grid-row: 3;
   margin-top: 3rem;
   background: url('../images/newmember.svg') no-repeat center center;
-  background-size: 100% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 1rem;
-  padding: 1.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-align: center;
+  padding: 0;
+  display: block;
   width: 73%;
-  max-width: 1410px;
-  /* Ensure height for background */
-  min-height: 180px; 
+  max-width: none;
+  aspect-ratio: 14/5;
+  min-height: auto;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   z-index: 2;
-}
-
-@media (min-width: 768px) {
-  #event_2026_dance #steps .incentive_banner {
-    width: 73%; /* Occupy nearly full width */
-    max-width: none; /* Override mobile max-width: 1200px */
-    aspect-ratio: 14/5; /* Lock aspect ratio to match image */
-    background-size: contain; /* Ensure full image is visible */
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: auto; /* Remove fixed height constraint */
-    padding: 0;
-    
-    /* Container Query Setup */
-    container-type: inline-size;
-    position: relative;
-    display: block;
-  }
-  
-  /* Text Container - Absolute Positioning */
-  #event_2026_dance #steps .incentive_banner > div:last-child {
-    position: absolute;
-    top: 66%; /* Increased from 63% to move down */
-    right: 10%; /* Increased from 12% to move left */
-    transform: translateY(-50%);
-    text-align: left;
-    width: auto;
-  }
-  
-  #event_2026_dance #steps .incentive_banner h3 {
-    line-height: 1.4;
-    white-space: nowrap;
-  }
+  container-type: inline-size;
 }
 
 #event_2026_dance #steps .incentive_banner .icon {
-  display: none; /* Hide icon as it is likely part of the SVG */
+  display: none;
+}
+
+#event_2026_dance #steps .incentive_banner > div:last-child {
+  position: absolute;
+  top: 66%;
+  right: 10%;
+  transform: translateY(-50%);
+  text-align: left;
+  width: auto;
 }
 
 #event_2026_dance #steps .incentive_banner h3 {
   font-size: 2.34vw;
   font-weight: 500;
-  color: #3F3F3F; /* Dark text */
+  color: #3F3F3F;
   margin: 0;
+  line-height: 1.4;
+  white-space: nowrap;
   font-family: "Montserrat", sans-serif;
 }
+
 
 /* ========== Video Section ========== */
 #event_2026_dance #video {
@@ -606,14 +459,14 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.83333vw; /* 16px at 1920px */
+  gap: 0.83333vw;
 }
 
 #event_2026_dance #video .video_title::before {
   content: '';
   display: block;
-  width: 2.5vw; /* 48px at 1920px */
-  height: 4.16667vw; /* 80px at 1920px */
+  width: 2.5vw;
+  height: 4.16667vw;
   background: url('../images/blacklightingL.svg') no-repeat center center;
   background-size: contain;
 }
@@ -621,8 +474,8 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #video .video_title::after {
   content: '';
   display: block;
-  width: 2.5vw; /* 48px at 1920px */
-  height: 4.16667vw; /* 80px at 1920px */
+  width: 2.5vw;
+  height: 4.16667vw;
   background: url('../images/blacklightingR.svg') no-repeat center center;
   background-size: contain;
 }
@@ -634,7 +487,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #video .video_container {
   position: relative;
   width: 75vw;
-  padding-bottom: 42.1875vw; /* 75vw * 9 / 16 = 42.1875vw */
+  padding-bottom: 42.1875vw;
   height: 0;
   overflow: hidden;
   border-radius: 1rem;
@@ -653,7 +506,6 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   height: 100%;
 }
 
-/* Video Cover & Play Button */
 .video-cover {
   position: absolute;
   top: 0;
@@ -696,8 +548,9 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   border-style: solid;
   border-width: 10px 0 10px 20px;
   border-color: transparent transparent transparent #000;
-  margin-left: 5px; /* Visual center adjustment */
+  margin-left: 5px;
 }
+
 
 /* ========== Prizes Section ========== */
 #event_2026_dance #prizes {
@@ -729,18 +582,12 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #prizes .prizes_grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 5rem;
   max-width: 80rem;
   margin: 0 auto 3rem;
   padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-  #event_2026_dance #prizes .prizes_grid {
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center; /* Vertically center cards */
-  }
+  align-items: center;
 }
 
 #event_2026_dance #prizes .prize_card {
@@ -761,14 +608,8 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #prizes .prize_card.first {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 768px) {
-  #event_2026_dance #prizes .prize_card.first {
-    width: 27.08333vw;
-    height: 27.93666vw;
-    transform: none; /* Remove scale to use explicit size */
-  }
+  width: 27.08333vw;
+  height: 27.93666vw;
 }
 
 #event_2026_dance #prizes .prize_badge {
@@ -815,7 +656,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #prizes .prize_card.first .prize_title {
-  margin-bottom: 0.25rem; /* Reduced spacing */
+  margin-bottom: 0.25rem;
 }
 
 #event_2026_dance #prizes .prize_card .prize_image {
@@ -825,12 +666,12 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   align-items: center;
   justify-content: center;
   color: #6b7280;
-  border-radius: 0.5rem; /* Small radius for image box */
+  border-radius: 0.5rem;
 }
 
 #event_2026_dance #prizes .prize_card.first .prize_image {
   height: 15rem;
-  margin-top: 0.25rem; /* Reduced spacing */
+  margin-top: 0.25rem;
 }
 
 #event_2026_dance #prizes .prize_card .prize_image img {
@@ -862,7 +703,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  height: 4rem; /* Explicit height to match hero button */
+  height: 4rem;
   box-sizing: border-box;
 }
 
@@ -893,6 +734,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   text-align: center;
 }
 
+
 /* ========== Rules Section ========== */
 #event_2026_dance #rules {
   width: 100%;
@@ -910,15 +752,13 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #rules .rules_content {
   background: white;
-  padding: 0 0 2.5rem 0; /* Remove top/side padding, keep bottom */
+  padding: 0 0 2.5rem 0;
   border: 1px solid #e5e5e5;
-  border-radius: 1.5rem; /* Updated to 1.5rem */
+  border-radius: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   font-size: clamp(0.875rem, 1.61vw, 1.25rem);
   color: #333;
   line-height: 1.75;
-  
-  /* Collapse Logic */
   max-height: 1080px;
   overflow: hidden;
   position: relative;
@@ -930,20 +770,19 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   font-weight: 700;
   text-align: center;
   color: #9CA3AF;
-  background-color: #f3f4f6; /* Light gray background */
-  margin-top: 0; /* Remove default margin */
+  background-color: #f3f4f6;
+  margin-top: 0;
   margin-bottom: 1.5rem;
-  padding: 1.5rem 0; /* Vertical padding */
+  padding: 1.5rem 0;
   border-bottom: 1px solid #e5e5e5;
-  width: 100%; /* Full width */
-  border-radius: 1.5rem 1.5rem 0 0; /* Match container top corners */
+  width: 100%;
+  border-radius: 1.5rem 1.5rem 0 0;
 }
 
 #event_2026_dance #rules .rules_content.expanded {
-  max-height: 5000px; /* Large enough number to fit all content */
+  max-height: 5000px;
 }
 
-/* Gradient Overlay */
 #event_2026_dance #rules .rules_content::after {
   content: '';
   position: absolute;
@@ -954,7 +793,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
   pointer-events: none;
   transition: opacity 0.3s;
-  z-index: 2; /* Ensure it stays on top of relative children */
+  z-index: 2;
 }
 
 #event_2026_dance #rules .rules_content.expanded::after {
@@ -971,10 +810,9 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #rules .rules_list > li {
   margin-bottom: 1.5rem;
   position: relative;
-  padding-left: 1.5rem; /* Indent for bullet */
+  padding-left: 1.5rem;
 }
 
-/* Solid Black Bullet */
 #event_2026_dance #rules .rules_list > li::before {
   content: '●';
   position: absolute;
@@ -982,7 +820,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   top: 0;
   color: #000;
   font-size: 0.8em;
-  line-height: 2; /* Adjust vertical alignment */
+  line-height: 2;
 }
 
 #event_2026_dance #rules .rules_list > li > strong {
@@ -991,7 +829,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #rules .rules_sublist {
-  list-style: none; /* Removed default disc */
+  list-style: none;
   padding-left: 0.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -1003,7 +841,6 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   padding-left: 1.5rem;
 }
 
-/* Hollow Circle Bullet */
 #event_2026_dance #rules .rules_sublist li::before {
   content: '◎';
   position: absolute;
@@ -1013,7 +850,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #rules .rules_ordered_list {
-  list-style: none; /* Custom numbering */
+  list-style: none;
   padding-left: 0;
   margin-top: 0.5rem;
   counter-reset: rules-counter;
@@ -1035,17 +872,17 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 }
 
 #event_2026_dance #rules .rules_note {
-  color: #333; /* Standard color */
+  color: #333;
   font-weight: normal;
   margin-top: 0.5rem;
-  padding-left: 1.5rem; /* Align with sublist */
+  padding-left: 1.5rem;
 }
 
 #event_2026_dance #rules .rules_toggle_btn {
   background: transparent;
   padding: 0;
   cursor: pointer;
-  margin: 1rem auto 0; /* Changed from negative margin to positive spacing */
+  margin: 1rem auto 0;
   position: relative;
   z-index: 10;
   width: fit-content;
@@ -1061,9 +898,10 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 #event_2026_dance #rules .rules_toggle_btn img {
   display: block;
-  height: 3rem; /* Set a reasonable height for the icon */
+  height: 3rem;
   width: auto;
 }
+
 
 /* ========== Video Modal ========== */
 .video_modal {
@@ -1092,7 +930,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .video_modal_container {
@@ -1119,8 +957,8 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 
 .video_modal_close {
   position: absolute;
-  top: -40px;
-  right: 0;
+  top: -50px;
+  right: -50px;
   background: transparent;
   border: none;
   color: white;
@@ -1130,46 +968,271 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   line-height: 1;
 }
 
-@media (min-width: 768px) {
-  .video_modal_close {
-    top: -50px;
-    right: -50px;
-    /* font-size handled by base class clamp */
-  }
-}
 
-/* ========== Floating Camera Button ========== */
-/* Removed old container styles */
-.floating_camera_btn_container {
-  display: none; 
-}
-
-/* Global Floating Container */
+/* ========== Floating Camera Button (Desktop Hidden) ========== */
 .global_floating_camera_container {
   display: none;
 }
 
+
+/* ============================================
+   3. MOBILE OVERRIDES (@media max-width: 1023px)
+   ============================================ */
+
 @media (max-width: 1023px) {
-  /* Use fixed positioning to float over everything, but control visibility with JS */
-  /* Or use sticky if we can find a parent that spans video to footer */
   
-  /* Current strategy: Fixed position, controlled by ScrollTrigger/JS logic or simplified CSS sticky if structure allows */
-  /* Given the request: "Appears when section video appears" -> meaning it shows up LATER? */
-  /* Re-reading user request: "滑動到出現section vedio時 這個按鈕才出現" -> appear when video section is reached */
-  /* AND "跟著滑動到頁尾" -> stay visible until footer */
+  /* ========== Hero Section Mobile ========== */
+  #event_2026_dance #hero {
+    padding: 4rem 1rem 10rem;
+  }
+
+  #event_2026_dance #hero .hero_cta {
+    max-width: 100%;
+    padding: 0 0.5rem;
+    gap: 0.75rem;
+  }
   
-  /* Best approach: Fixed position button, initially hidden, show via JS when scroll passes threshold */
+  #event_2026_dance #hero .hero_cta .btn {
+    flex: 1;
+    width: auto;
+    max-width: none;
+    font-size: 1.125rem;
+    height: 3.5rem;
+    padding: 0.5rem;
+  }
   
+  #event_2026_dance #hero .hero_cta .btn::after {
+    height: 1.5rem;
+  }
+
+  #event_2026_dance #hero .char_left {
+    width: 40%;
+    left: 5%;
+    bottom: -4rem;
+  }
+  
+  #event_2026_dance #hero .char_right {
+    width: 35%;
+    right: 5%;
+    bottom: -3rem;
+  }
+  
+  #event_2026_dance #hero .hero_title .line1 {
+    font-size: 8vw;
+  }
+  
+  #event_2026_dance #hero .hero_title .line2 {
+    font-size: 10vw;
+  }
+
+  #event_2026_dance #hero .hero_subtitle {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 20;
+  }
+
+  
+  /* ========== Steps Section Mobile ========== */
+  #event_2026_dance #steps {
+    padding: 0;
+    background: white;
+  }
+  
+  #event_2026_dance #steps::before {
+    height: 30px;
+  }
+  
+  #event_2026_dance #steps .steps_title {
+    padding-top: 3rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.75rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  #event_2026_dance #steps .steps_grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 0 1.5rem 3rem;
+  }
+  
+  /* Green background for cards area */
+  #event_2026_dance #steps .steps_grid::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: #ccffe1;
+    z-index: 0;
+  }
+  
+  /* White background layer for banner area */
+  #event_2026_dance #steps .incentive_banner::before {
+    content: '';
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: calc(100% + 6rem);
+    background: white;
+    z-index: -1;
+  }
+
+  #event_2026_dance #steps .step_main {
+    margin-bottom: 0;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  #event_2026_dance #steps .step_badge {
+    font-size: 1.5rem;
+    padding: 1.25rem 0;
+  }
+
+  #event_2026_dance #steps .step_title {
+    font-size: 1.125rem;
+    margin: 1.25rem 1.5rem;
+    line-height: 1.6;
+  }
+
+  #event_2026_dance #steps .step_image {
+    height: 12rem;
+    margin: 0 1.5rem 1rem;
+  }
+
+  #event_2026_dance #steps .step_footer {
+    margin-bottom: 0;
+    padding-top: 2rem;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  #event_2026_dance #steps .step_btn {
+    width: 90%;
+    max-width: 320px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 3rem;
+  }
+
+  #event_2026_dance #steps .step_note {
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    padding: 0 1rem;
+    line-height: 1.5;
+  }
+
+  /* Remove desktop arrows */
+  #event_2026_dance #steps .step1_main::after,
+  #event_2026_dance #steps .step2_main::after {
+    display: none;
+  }
+  
+  /* Remove desktop white background layer */
+  #event_2026_dance #steps .steps_bg_layer {
+    display: none;
+  }
+
+  /* Incentive Banner Mobile */
+  #event_2026_dance #steps .incentive_banner {
+    width: 90%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2.5rem 2rem;
+    min-height: 200px;
+    position: relative;
+    z-index: 10;
+    grid-column: auto;
+    grid-row: auto;
+    aspect-ratio: auto;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #event_2026_dance #steps .incentive_banner > div:last-child {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    text-align: center;
+  }
+
+  #event_2026_dance #steps .incentive_banner h3 {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    white-space: normal;
+    font-weight: 600;
+  }
+  
+  #event_2026_dance #steps .incentive_banner .icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+  }
+
+  
+  /* ========== Video Section Mobile ========== */
+  #event_2026_dance #video {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #event_2026_dance #video .video_container {
+    width: 100%;
+    padding-bottom: 56.25%;
+  }
+
+  
+  /* ========== Prizes Section Mobile ========== */
+  #event_2026_dance #prizes .prizes_grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  #event_2026_dance #prizes .prize_card.first {
+    width: 100%;
+    height: auto;
+  }
+
+  
+  /* ========== Rules Section Mobile ========== */
+  #event_2026_dance #rules {
+    padding: 2rem 1rem;
+  }
+
+  #event_2026_dance #rules .rules_container {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  
+  /* ========== Video Modal Mobile ========== */
+  .video_modal_close {
+    top: -40px;
+    right: 0;
+  }
+
+  
+  /* ========== Floating Camera Button Mobile ========== */
   .global_floating_camera_container {
     display: block;
-    position: fixed; /* Fixed to viewport */
+    position: fixed;
     top: 20vh;
     right: 10px;
     z-index: 999;
-    opacity: 0; /* Hidden initially */
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* Click-through when hidden */
+    pointer-events: none;
   }
   
   .global_floating_camera_container.visible {
@@ -1179,16 +1242,14 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   }
 
   .floating_camera_btn {
-    /* No longer sticky, now just a static block inside the fixed container */
-    position: relative; 
-    top: auto;
+    position: relative;
     background: url('../images/open-camera.svg') no-repeat center center;
     background-size: contain;
     border: none;
     border-radius: 0;
     cursor: pointer;
-    width: 140px; /* Adjust size based on aspect ratio of your SVG */
-    height: 140px; 
+    width: 140px;
+    height: 140px;
     padding: 0;
     display: flex;
     align-items: center;
@@ -1201,21 +1262,20 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   }
   
   .floating_camera_btn img {
-    display: none; /* Hide img tag since we use background */
+    display: none;
   }
 
   .floating_camera_btn .btn_text {
-    /* Position text based on your SVG design - adjust top/left % as needed */
     position: absolute;
-    top: 35%; /* Example: pushed down slightly if icon is centered */
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 15px;
     font-weight: 700;
     line-height: 1.3;
-    color: white; /* Assuming SVG background is dark/solid enough */
+    color: white;
     text-align: center;
     white-space: nowrap;
-    width: 80%; /* Ensure text doesn't spill out */
+    width: 80%;
   }
 }
