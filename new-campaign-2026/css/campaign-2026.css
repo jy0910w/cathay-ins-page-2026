@@ -234,7 +234,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   grid-template-columns: 1fr minmax(0, 27.5rem) minmax(0, 27.5rem) minmax(0, 27.5rem) 1fr;
   grid-template-rows: auto auto auto;
   gap: 0;
-  column-gap: 6rem;
+  column-gap: 5rem;
   max-width: none;
   margin: 0 auto;
   position: relative;
@@ -273,7 +273,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   background: transparent;
   color: #3F3F3F;
   font-weight: 700;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   text-align: center;
   font-size: clamp(1.25rem, 2.34vw, 3rem);
   width: 100%;
@@ -282,7 +282,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #steps .step_title {
   font-size: clamp(1rem, 1.67vw, 2rem);
   font-weight: 450;
-  margin: 1rem;
+  margin: 0.5rem;
   line-height: 1.4;
   color: #3F3F3F;
   text-align: center;
@@ -292,7 +292,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   margin: 0 1rem;
   display: flex;
   justify-content: center;
-  height: 13.125rem;
+  height: 10rem;
   align-items: center;
 }
 
@@ -368,7 +368,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #steps .step2_main::after {
   content: '';
   position: absolute;
-  left: calc(100% + 3rem);
+  left: calc(100% + 2.5rem);
   top: 50%;
   transform: translate(-50%, -50%);
   width: 2rem;
@@ -425,7 +425,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #steps .incentive_banner > div:last-child {
   position: absolute;
   top: 66%;
-  right: 10%;
+  right: 6%;
   transform: translateY(-50%);
   text-align: left;
   width: auto;
@@ -454,6 +454,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #video .video_title {
   font-size: clamp(1rem, 4.17vw, 5rem);
   font-weight: 700;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 2rem;
   color: #3F3F3F;
   display: flex;
@@ -465,8 +466,8 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #video .video_title::before {
   content: '';
   display: block;
-  width: 2.5vw;
-  height: 4.16667vw;
+  width: 3.64vw;
+  height: 5.625vw;
   background: url('../images/blacklightingL.svg') no-repeat center center;
   background-size: contain;
 }
@@ -474,8 +475,8 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #video .video_title::after {
   content: '';
   display: block;
-  width: 2.5vw;
-  height: 4.16667vw;
+  width: 3.64vw;
+  height: 5.625vw;
   background: url('../images/blacklightingR.svg') no-repeat center center;
   background-size: contain;
 }
@@ -780,7 +781,7 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
 #event_2026_dance #rules .rules_content {
   background: white;
   padding: 0 0 4rem 0; /* Increase bottom padding to accommodate button inside */
-  border: 1px solid #e5e5e5;
+  border: 1px solid #a5a6ad;
   border-radius: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   font-size: clamp(0.875rem, 1.61vw, 1.25rem);
@@ -796,12 +797,12 @@ body.show #sec3, body.show #sec4, body.show #sec5 {
   font-size: clamp(2rem, 4.17vw, 5rem);
   font-weight: 700;
   text-align: center;
-  color: #9CA3AF;
-  background-color: #f3f4f6;
+  color: #838383;
+  background-color: #f8f6f7;
   margin-top: 0;
   margin-bottom: 1.5rem;
   padding: 1.5rem 0;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #a5a6ad;
   width: 100%;
   border-radius: 1.5rem 1.5rem 0 0;
 }
