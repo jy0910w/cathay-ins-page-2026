@@ -155,10 +155,20 @@ document.addEventListener('DOMContentLoaded', function() {
   var videoSection = document.getElementById('video');
   
   if(cameraBtn && videoInput && cameraContainer && videoSection) {
+    var isAndroid = /Android/.test(navigator.userAgent);
+    var isLine = /Line/.test(navigator.userAgent);
+
     // Scroll Monitor
     window.addEventListener('scroll', function() {
       // Logic: Show button when Video Section top reaches viewport (or desired trigger point)
       // Requirement: "滑動到出現section vedio時 這個按鈕才出現"
+      
+      // Hide on Android Line
+      if (isAndroid && isLine) {
+        cameraContainer.classList.remove('visible');
+        return;
+      }
+
       var videoRect = videoSection.getBoundingClientRect();
       var triggerPoint = window.innerHeight * 0.8; // Trigger when video section is near bottom of viewport
       
@@ -189,8 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // User Goal: Wants camera access.
     //
     // Strategy: Detect Android + Line, and force 'capture' attribute.
-    var isAndroid = /Android/.test(navigator.userAgent);
-    var isLine = /Line/.test(navigator.userAgent);
+    // variables isAndroid and isLine are already defined above
     
     if (isAndroid && isLine) {
         // Line on Android is tricky. 
