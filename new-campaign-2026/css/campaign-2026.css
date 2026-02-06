@@ -895,7 +895,7 @@ body {
 }
 
 #event_2026_dance #rules .rules_sublist li::before {
-  content: '◎';
+  content: '■';
   position: absolute;
   left: 0;
   top: 0;
@@ -911,7 +911,7 @@ body {
 
 #event_2026_dance #rules .rules_ordered_list > li {
   margin-bottom: 0.75rem;
-  padding-left: 3rem;
+  padding-left: 1rem;
   position: relative;
 }
 
