@@ -69,9 +69,9 @@ body {
 #event_2026_dance #hero .char_left {
   position: absolute;
   bottom: -3rem;
-  left: 5%;
-  width: 23%;
-  max-width: 480px;
+  left: 4.8%;
+  width: 24.47%;
+  max-width: 470px;
   height: auto;
   z-index: 5;
   transform: translateX(-10%);
@@ -79,10 +79,10 @@ body {
 
 #event_2026_dance #hero .char_right {
   position: absolute;
-  bottom: -1.5rem;
+  bottom: -1rem;
   right: 6%;
-  width: 19%;
-  max-width: 380px;
+  width: 19.27%;
+  max-width: 370px;
   height: auto;
   z-index: 5;
   transform: translateX(10%);
@@ -93,7 +93,7 @@ body {
 }
 
 #event_2026_dance #hero .hero_title .line1 {
-  font-size: clamp(1.5rem, 4.28vw, 5.5rem);
+  font-size: clamp(1.5rem, 4vw, 4.8rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
   display: flex;
@@ -111,7 +111,7 @@ body {
 }
 
 #event_2026_dance #hero .hero_title .line2 {
-  font-size: clamp(2rem, 5.83vw, 7.5rem);
+  font-size: clamp(2rem, 4.8vw, 5rem);
   font-weight: 800;
 }
 
@@ -135,7 +135,7 @@ body {
 }
 
 #event_2026_dance #hero .hero_subtitle .big_num {
-  font-size: clamp(2.5rem, 6.15vw, 8rem);
+  font-size: clamp(2.5rem, 6vw, 7.2rem);
   line-height: 1;
   margin: 0 0.25rem;
   transform: translateY(-2px);
@@ -883,9 +883,10 @@ body {
 
 #event_2026_dance #rules .rules_sublist {
   list-style: none;
-  padding-left: 0.5rem;
+  padding-left: 0;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  margin-left: -1.5rem;
 }
 
 #event_2026_dance #rules .rules_sublist li {
@@ -907,11 +908,12 @@ body {
   padding-left: 0;
   margin-top: 0.5rem;
   counter-reset: rules-counter;
+  margin-left: -1.5rem;
 }
 
 #event_2026_dance #rules .rules_ordered_list > li {
   margin-bottom: 0.75rem;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   position: relative;
 }
 
@@ -1485,5 +1487,50 @@ body {
 
   .prize_nav_next {
     right: 0.25rem;
+  }
+}
+
+  /* ========== Large Screen Adjustments ========== */
+  /* Prevent characters from moving too far out on very wide screens (>= 1920px) */
+@media (min-width: 1920px) {
+  #event_2026_dance #hero .char_left {
+    /* Fixed position calculation: Center - (1920px * 0.05 left + 1920px * 0.23 width) + alignment adjustment */
+    /* Original left: 5% -> 96px at 1920px width */
+    /* Distance from center = 960px - 96px = 864px */
+    left: calc(50% - 864px); 
+    width: 470px; /* Fixed width at 1920px * 23% */
+  }
+  
+  #event_2026_dance #hero .char_right {
+    /* Fixed position calculation: Center - (1920px * 0.06 right + 1920px * 0.19 width) + alignment adjustment */
+    /* Original right: 6% -> 115.2px at 1920px width */
+    /* Distance from center = 960px - 115.2px = 844.8px -> 845px */
+    right: calc(50% - 845px);
+    width: 370px; /* Fixed width at 1920px * 19% */
+  }
+
+  #event_2026_dance #steps::before {
+    height: 55px;
+    clip-path: polygon(0 100%, 43% 100%, 50% 0, 57% 100%, 100% 100%);
+  }
+
+  #event_2026_dance #hero .hero_cta .btn {
+    max-width: 435px;
+    min-height: 4rem;
+    height: auto;
+  }
+
+  #event_2026_dance #hero .hero_subtitle {
+    margin-top: calc(40vw - 614px);
+    transform: translateY(48px);
+  }
+
+  #event_2026_dance #hero::before {
+    background: url('../images/section1-3.svg') no-repeat center -100px;
+  }
+
+  #event_2026_dance #hero {
+    padding: 8rem 2rem 0;
+    min-height: 41.67vw;
   }
 }
