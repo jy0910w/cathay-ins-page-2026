@@ -418,7 +418,7 @@ body {
   padding: 0;
   display: block;
   width: 73%;
-  max-width: none;
+  max-width: 1402px;
   aspect-ratio: 14/5;
   min-height: auto;
   margin-left: auto;
@@ -477,28 +477,18 @@ body {
   font-family: "Montserrat", sans-serif;
   margin-bottom: 2rem;
   color: #3F3F3F;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.83333vw;
+  display: block;
+  line-height: 1.4;
 }
 
 #event_2026_dance #video .video_title::before {
   content: '';
-  display: block;
-  width: 3.64vw;
-  height: 5.625vw;
-  background: url('../images/blacklightingL.svg') no-repeat center center;
-  background-size: contain;
+  display: none;
 }
 
 #event_2026_dance #video .video_title::after {
   content: '';
-  display: block;
-  width: 3.64vw;
-  height: 5.625vw;
-  background: url('../images/blacklightingR.svg') no-repeat center center;
-  background-size: contain;
+  display: none;
 }
 
 #event_2026_dance #video .video_title span {
@@ -601,7 +591,7 @@ body {
 }
 
 #event_2026_dance #prizes .prizes_grid {
-  max-width: 80rem;
+  max-width: none;
   margin: 0 auto 3rem;
   padding: 0 1rem;
 }
@@ -639,7 +629,6 @@ body {
   padding: 0 1px 1px 1px;
   border-radius: 1.5rem;
   text-align: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   position: relative;
   display: flex;
@@ -651,15 +640,14 @@ body {
 }
 
 #event_2026_dance #prizes .prize_card.first {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  width: 27.08333vw;
-  aspect-ratio: 27.08333 / 27.93666;
+  width: 26.822917vw;
+  aspect-ratio: 26.822917 / 27.864583;
   height: auto;
 }
 
 #event_2026_dance #prizes .prize_card:not(.first) {
-  width: 23.69792vw;
-  aspect-ratio: 23.69792 / 24;
+  width: 23.4375vw;
+  aspect-ratio: 23.4375 / 24.47917;
   height: auto;
   align-self: center;
 }
@@ -668,7 +656,7 @@ body {
   background: transparent;
   color: #3F3F3F;
   font-weight: 700;
-  padding: 0;
+  padding: 2rem 0;
   text-align: center;
   width: 100%;
   line-height: 1.2;
@@ -676,18 +664,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 25%;
-  flex-basis: 25%;
+  min-height: 32%;
+  flex-basis: 32%;
 }
 
 #event_2026_dance #prizes .prize_badge .badge_rank {
   display: block;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(2rem, 3.2vw, 3.875rem);
 }
 
 #event_2026_dance #prizes .prize_badge .badge_count {
   display: block;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(1.5rem, 2.1vw, 2.5rem);
   margin-top: 0;
 }
 
@@ -717,13 +705,14 @@ body {
 #event_2026_dance #prizes .prize_card .prize_title {
   font-size: clamp(1rem, 1.67vw, 2rem) !important;
   font-weight: 700;
-  margin: 0.25rem 0;
+  margin: 0.75rem 0 0.5rem;
   color: #3F3F3F;
   font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
 }
 
 #event_2026_dance #prizes .prize_card.first .prize_title {
-  margin: 0.75rem 0;
+  margin: 1.25rem 0 0.75rem;
 }
 
 #event_2026_dance #prizes .prize_card .prize_image {
@@ -739,9 +728,16 @@ body {
 }
 
 #event_2026_dance #prizes .prize_card .prize_image img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 85%;
+  max-height: 85%;
   object-fit: contain; /* Ensures image maintains aspect ratio within the container */
+}
+
+/* Align 2nd prize image to bottom */
+#event_2026_dance #prizes .prize_card.second .prize_image {
+  align-items: flex-end;
 }
 
 #event_2026_dance #prizes .prizes_cta {
@@ -757,11 +753,14 @@ body {
 
 #event_2026_dance #prizes .prizes_cta .btn {
   display: flex;
-  padding: 1rem 2rem;
-  width: 100%; /* Make button fill its container */
-  font-size: clamp(1rem, 1.5rem, 2rem);
+  padding: 0;
+  width: 28.3854vw;
+  height: 5.46875vw;
+  max-width: 545px;
+  max-height: 105px;
+  font-size: clamp(1rem, 2.4vw, 2.8125rem);
   font-weight: 700;
-  border-radius: 2rem;
+  border-radius: 999px;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -771,7 +770,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  height: 4rem;
   box-sizing: border-box;
 }
 
@@ -796,7 +794,7 @@ body {
 }
 
 #event_2026_dance #prizes .cta_note {
-  font-size: clamp(0.75rem, 1rem, 1.25rem);
+  font-size: clamp(0.75rem, 1.35417vw, 1.625rem);
   color: #6b7280;
   margin-top: 1rem;
   margin-bottom: 0;
@@ -826,7 +824,7 @@ body {
   border: 1px solid #a5a6ad;
   border-radius: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  font-size: clamp(0.875rem, 1.61vw, 1.25rem);
+  font-size: clamp(0.875rem, 1.61vw, 1.9375rem);
   color: #333;
   line-height: 1.75;
   max-height: 1080px;
@@ -880,7 +878,7 @@ body {
 #event_2026_dance #rules .rules_list > li {
   margin-bottom: 1.5rem;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
 }
 
 #event_2026_dance #rules .rules_list > li::before {
@@ -909,7 +907,7 @@ body {
 #event_2026_dance #rules .rules_sublist li {
   margin-bottom: 0.25rem;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
 }
 
 #event_2026_dance #rules .rules_sublist li::before {
@@ -1044,8 +1042,41 @@ body {
 }
 
 
-/* ========== Floating Camera Button (Desktop Hidden) ========== */
+/* ========== Floating Camera Button (Desktop Visible) ========== */
 .global_floating_camera_container {
+  display: block;
+  position: fixed;
+  bottom: 5vh;
+  right: 2rem;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.global_floating_camera_container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.floating_camera_btn {
+  width: 300px;
+  height: 420px;
+  background: url('../images/buttom2.svg') no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.floating_camera_btn:hover {
+  transform: scale(1.05);
+}
+
+.floating_camera_btn .btn_text {
   display: none;
 }
 
@@ -1391,8 +1422,9 @@ body {
   .global_floating_camera_container {
     display: block;
     position: fixed;
-    top: 20vh;
-    right: 10px;
+    top: auto;
+    bottom: 10vh;
+    right: 0;
     z-index: 999;
     opacity: 0;
     transform: translateY(20px);
@@ -1431,6 +1463,7 @@ body {
   }
 
   .floating_camera_btn .btn_text {
+    display: block;
     position: absolute;
     top: 35%;
     left: 50%;
@@ -1465,8 +1498,8 @@ body {
   
   /* Reduce Prize Badge height on Mobile - Restoring to safer value */
   #event_2026_dance #prizes .prize_badge {
-    min-height: 25%; /* Increased from 20% */
-    flex-basis: 25%;
+    min-height: 28%; /* Increased from 20% */
+    flex-basis: 28%;
   }
 
   /* Reduce Rules initial height on Mobile */
