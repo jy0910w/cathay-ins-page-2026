@@ -31,6 +31,10 @@ body {
   background: white;
 }
 
+.mobile_br {
+  display: none;
+}
+
 
 /* ============================================
    2. DESKTOP STYLES (BASE)
@@ -63,6 +67,16 @@ body {
 #event_2026_dance #hero .hero_content {
   position: relative;
   z-index: 10;
+}
+
+#event_2026_dance #hero .hero_chars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
 }
 
 /* Characters */
@@ -148,7 +162,7 @@ body {
   justify-content: center;
   gap: 2.708vw;
   margin-bottom: 3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   max-width: clamp(500px, 48vw, 1000px);
   margin-left: auto;
   margin-right: auto;
@@ -876,7 +890,6 @@ body {
 }
 
 #event_2026_dance #rules .rules_list > li {
-  margin-bottom: 1.5rem;
   position: relative;
   padding-left: 2rem;
 }
@@ -1087,9 +1100,32 @@ body {
 
 @media (max-width: 1023px) {
   
+  .mobile_br {
+    display: inline;
+  }
+
   /* ========== Hero Section Mobile ========== */
   #event_2026_dance #hero {
-    padding: 4rem 1rem 10rem;
+    padding: 2rem 1rem 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #event_2026_dance #hero::before {
+    background-size: 120% auto;
+    height: 100%;
+  }
+
+  #event_2026_dance #hero .hero_chars {
+    position: relative;
+    width: 100%;
+    height: auto;
+    order: -1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    pointer-events: auto;
   }
 
   #event_2026_dance #hero .hero_cta {
@@ -1099,36 +1135,43 @@ body {
   }
   
   #event_2026_dance #hero .hero_cta .btn {
-    flex: 1;
-    width: auto;
+    flex: 0 1 auto; /* Allow shrink to prevent overflow */
+    width: 44.47vw; /* 455px at 1023px width */
+    height: 11.73vw; /* 120px at 1023px width */
     max-width: none;
-    font-size: 1.125rem;
-    height: 3.5rem;
-    padding: 0.5rem;
+    font-size: clamp(1rem, 3.5vw, 2.5rem); /* Adjust font size to scale */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   #event_2026_dance #hero .hero_cta .btn::after {
-    height: 1.5rem;
+    height: 40%;
+    width: 1.5rem;
   }
 
   #event_2026_dance #hero .char_left {
+    position: static;
     width: 40%;
-    left: 5%;
-    bottom: -4rem;
+    max-width: 250px;
+    transform: none;
+    margin-right: 1rem;
   }
   
   #event_2026_dance #hero .char_right {
+    position: static;
     width: 35%;
-    right: 5%;
-    bottom: -3rem;
+    max-width: 220px;
+    transform: none;
   }
   
   #event_2026_dance #hero .hero_title .line1 {
-    font-size: 8vw;
+    font-size: 5.5vw;
   }
   
   #event_2026_dance #hero .hero_title .line2 {
-    font-size: 10vw;
+    font-size: 7.5vw;
   }
 
   #event_2026_dance #hero .hero_subtitle {
@@ -1196,6 +1239,9 @@ body {
     margin-bottom: 0;
     grid-column: auto;
     grid-row: auto;
+    height: auto;
+    max-width: 654px;
+    width: 63.88vw;
   }
 
   #event_2026_dance #steps .step_badge {
@@ -1214,6 +1260,12 @@ body {
     margin: 0 1.5rem;
   }
 
+  /* Reset image scaling for mobile */
+  #event_2026_dance #steps .step1_main .step_image img,
+  #event_2026_dance #steps .step2_main .step_image img {
+    transform: none;
+  }
+
   #event_2026_dance #steps .step_footer {
     margin-bottom: 0;
     padding-top: 0;
@@ -1222,11 +1274,12 @@ body {
   }
 
   #event_2026_dance #steps .step_btn {
-    width: 90%;
-    max-width: 320px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border-radius: 3rem;
+    width: 77.81vw; /* 796px / 1023px */
+    height: 16.62vw; /* 170px / 1023px */
+    max-width: 796px;
+    padding: 0;
+    font-size: clamp(1rem, 4.5vw, 3rem);
+    border-radius: 9999px;
   }
 
   #event_2026_dance #steps .step_note {
@@ -1250,7 +1303,7 @@ body {
   /* Incentive Banner Mobile */
   #event_2026_dance #steps .incentive_banner {
     width: 100%;
-    margin-top: 0; /* Reduced spacing from steps */
+    margin-top: 3rem; /* Increased spacing from steps */
     margin-bottom: 0;
     padding: 0;
     min-height: 200px;
@@ -1314,7 +1367,8 @@ body {
   }
 
   #event_2026_dance #video .video_container {
-    width: 100%;
+    width: 100vw;
+    margin-left: -1rem;
     padding-bottom: 56.25%;
   }
 
@@ -1360,16 +1414,16 @@ body {
 
   #event_2026_dance #prizes .prize_card.first {
     /* order: -1; Removed for Swiper loop */
-    min-width: 70vw; /* Reverted to 70vw */
-    width: 70vw;
+    width: 63.91vw; /* 654/1023 * 100% */
+    max-width: 654px;
     height: auto;
-    aspect-ratio: auto;
+    aspect-ratio: auto; /* Allow auto height based on content or reset if needed */
     align-self: stretch; /* Ensure it stretches to match tallest card */
   }
   
   #event_2026_dance #prizes .prize_card:not(.first) {
-    min-width: 70vw;
-    width: 70vw;
+    width: 63.91vw; /* 654/1023 * 100% */
+    max-width: 654px;
     height: auto;
     aspect-ratio: auto;
     align-self: stretch; /* Stretch to match height of tallest card if needed */
@@ -1482,6 +1536,11 @@ body {
   #event_2026_dance #prizes .prize_card:not(.first) .prize_card_body {
     padding: 0.75rem 1rem; /* Reduce vertical padding significantly */
   }
+
+  /* Remove bottom padding for 2nd prize to align image to bottom */
+  #event_2026_dance #prizes .prize_card.second .prize_card_body {
+    padding-bottom: 0;
+  }
   
   #event_2026_dance #prizes .prize_card.first .prize_title,
   #event_2026_dance #prizes .prize_card:not(.first) .prize_title {
@@ -1492,8 +1551,27 @@ body {
   /* Reduce image container height */
   #event_2026_dance #prizes .prize_card .prize_image {
     padding: 0.25rem; /* Further reduce padding around image */
-    flex: 0 0 auto; /* Stop it from growing too much */
-    height: 8rem; /* Set a specific, smaller height for mobile images */
+    flex: 1 1 auto; /* Allow growing to fill empty space */
+    min-height: 8rem; /* Set a specific, smaller height for mobile images */
+    height: auto;
+  }
+
+  /* Adjust image size on mobile */
+  #event_2026_dance #prizes .prize_card .prize_image img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  /* Keep 2nd prize image smaller */
+  #event_2026_dance #prizes .prize_card.second .prize_image img {
+    max-width: 70%;
+    max-height: 70%;
+  }
+
+  /* 2nd prize image bottom align on mobile */
+  #event_2026_dance #prizes .prize_card.second .prize_image {
+    padding-bottom: 0;
+    align-items: flex-end;
   }
   
   /* Reduce Prize Badge height on Mobile - Restoring to safer value */
