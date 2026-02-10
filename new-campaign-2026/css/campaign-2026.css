@@ -1268,12 +1268,12 @@ body {
     grid-column: auto;
     grid-row: auto;
     height: auto;
-    max-width: 654px;
-    width: 63.88vw;
+    max-width: 700px;
+    width: 64.8vw;
   }
 
   #event_2026_dance #steps .step_badge {
-    font-size: 1.5rem;
+    font-size: 6.6vw;
     padding: 1.25rem 0;
   }
 
@@ -1289,9 +1289,38 @@ body {
   }
 
   /* Reset image scaling for mobile */
-  #event_2026_dance #steps .step1_main .step_image img,
+  #event_2026_dance #steps .step1_main .step_image {
+    height: 39.35vw; /* 425px / 1080px */
+  }
+
+  #event_2026_dance #steps .step1_main .step_image img {
+    transform: none;
+    width: 22.22vw; /* 240px / 1080px */
+    height: 100%;
+    max-width: none;
+    max-height: none;
+  }
+
+  #event_2026_dance #steps .step2_main .step_image {
+    height: 39.35vw; /* 425px / 1080px */
+  }
+
   #event_2026_dance #steps .step2_main .step_image img {
     transform: none;
+    width: 38.89vw; /* 420px / 1080px */
+    height: 100%;
+    max-width: none;
+    max-height: none;
+  }
+
+  #event_2026_dance #steps .step3_main .step_image {
+    height: 37.03vw; /* 400px * 85% / 1080px */
+  }
+
+  #event_2026_dance #steps .step3_main .step_image img {
+    transform: none;
+    width: 55.55vw; /* 600px * 85% / 1080px */
+    height: 100%;
   }
 
   #event_2026_dance #steps .step_footer {
